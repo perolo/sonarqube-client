@@ -1,6 +1,6 @@
 package sonarclient
 
-//ConfluenceConfig holds the current client configuration
+//SonarQubeConfig holds the current client configuration
 type SonarQubeConfig struct {
 	Username string
 	Password string

@@ -5,11 +5,10 @@ import (
 )
 
 
-
-
-func (c *SonarQubeClient) GetProjects() (results *SonarProjects) {
+// .../api/projects/search_my_projects?ps=
+func (c *SonarQubeClient) GetProjects(limit int) (results *SonarProjects) {
 	var path string
-	path = fmt.Sprintf("/api/projects/search_my_projects?ps=250")
+	path = fmt.Sprintf("/api/projects/search_my_projects?ps=%v", limit)
 
 	results = &SonarProjects{}
 	c.doRequest("GET", path, nil, results)
