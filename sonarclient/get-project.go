@@ -15,3 +15,22 @@ func (c *SonarQubeClient) GetProjects(limit int) (results *SonarProjects) {
 	return results
 }
 
+// api/user_groups/search
+func (c *SonarQubeClient) GetGroups() (results *SonarUsers) {
+	var path string
+	path = fmt.Sprintf("/api/user_groups/search")
+
+	results = &SonarUsers{}
+	c.doRequest("GET", path, nil, results)
+	return results
+}
+
+func (c *SonarQubeClient) GetGroupMembers(id int) (results *SonarGroupMembers) {
+	var path string
+	path = fmt.Sprintf("/api/user_groups/users?id=%v", id)
+
+	results = &SonarGroupMembers{}
+	c.doRequest("GET", path, nil, results)
+	return results
+}
+

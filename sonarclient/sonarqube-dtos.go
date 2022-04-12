@@ -51,3 +51,28 @@ type QualityGateType struct {
 		Default bool   `json:"default"`
 	} `json:"qualityGate"`
 }
+
+type SonarUsers struct {
+	Paging struct {
+		PageIndex int `json:"pageIndex"`
+		PageSize  int `json:"pageSize"`
+		Total     int `json:"total"`
+	} `json:"paging"`
+	Groups []struct {
+		ID           int    `json:"id"`
+		Name         string `json:"name"`
+		Description  string `json:"description"`
+		MembersCount int    `json:"membersCount"`
+		Default      bool   `json:"default"`
+	} `json:"groups"`
+}
+type SonarGroupMembers struct {
+	Users []struct {
+		Login    string `json:"login"`
+		Name     string `json:"name"`
+		Selected bool   `json:"selected"`
+	} `json:"users"`
+	P     int `json:"p"`
+	Ps    int `json:"ps"`
+	Total int `json:"total"`
+}
